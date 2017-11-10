@@ -19,6 +19,8 @@
        java {
         srcDirs = ['src/main/java/']
         srcDir 'support'
+	exclude 'PercolationVisualizer.java'
+	exclude 'InteractivePercolationVisualizer.java'
        }
       }
      }

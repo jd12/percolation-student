@@ -18,8 +18,8 @@ public class PercolationTest {
 
   @Test
   public void testCloseSites() {
-    for(int i = 0; i < 10; i++) {
-      for(int j = 0; j < 10; j++) {
+    for(int i = 1; i <= 10; i++) {
+      for(int j = 1; j <= 10; j++) {
         assertFalse("Site " + i + "," + j + " should start closed", 
             grid10.isOpen(i, j));
       }
@@ -56,7 +56,8 @@ public class PercolationTest {
   public void testIsFullFalse() {
     grid10.open(1, 1);
     grid10.open(1, 3);
-    assertFalse(grid10.isFull(1, 3));
+    assertFalse("1,3 should not be full as it is not connected to top",
+        grid10.isFull(1, 3));
   }
 
   @Test
@@ -64,7 +65,8 @@ public class PercolationTest {
     grid10.open(1, 1);
     grid10.open(1, 3);
     grid10.open(1, 2);
-    assertTrue("1, 3 is connected to the top and thus should be full", grid10.isFull(1, 3));
+    assertTrue("1, 3 is connected to the top and thus should be full", 
+        grid10.isFull(1, 3));
   }
 
   private Percolation generatePercolation(String filename) {
@@ -97,7 +99,6 @@ public class PercolationTest {
   @Test
   public void testPercolates() {
     File folder = new File("percolation-test-files");
-    
     for (File file : folder.listFiles()) {
       if (file.isFile()&&(file.getName().substring(file.getName().lastIndexOf('.')+1).equals("txt"))) {
         if (!file.getName().contains("no")) {

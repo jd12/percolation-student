@@ -64,7 +64,6 @@ public class PercolationVisualizer {
     public static void main(String[] args) {
         In in = new In("percolation-test-files/input1.txt");      // input file
         int n = in.readInt();         // n-by-n percolation system
-        System.out.println(n);
         // turn on animation mode
         StdDraw.enableDoubleBuffering();
 

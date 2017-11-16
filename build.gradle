@@ -14,6 +14,9 @@
  apply plugin: 'findbugs'
  apply plugin: 'pmd'
 
+checkstyleTest.enabled = false
+pmdTest.enabled = false
+
  sourceSets {
       main {
        java {
@@ -52,16 +55,20 @@
 
 
  checkstyle {
+ 	 ignoreFailures = true
      toolVersion = "8.2"   // set Checkstyle version here
      configFile = file("config/checkstyle/checkstyle_coursera.xml")
  }
 
  findbugs {
+ 	  ignoreFailures = true
       excludeFilter = file('config/findbugs/findbugs-coursera.xml')
       toolVersion = "3.0.1"
  }
 
  pmd {
+ 	  ignoreFailures = true
+ 	  ruleSetFiles = files("config/pmd/ruleset.xml")
       toolVersion = "5.7.0"
  }
 

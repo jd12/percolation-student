@@ -55,18 +55,18 @@ public class PercolationTest {
   @Test
   public void testIsFullFalse() {
     grid10.open(1, 1);
-    grid10.open(1, 3);
-    assertFalse("1,3 should not be full as it is not connected to top",
-        grid10.isFull(1, 3));
+    grid10.open(3, 1);
+    assertFalse("3,1 should not be full as it is not connected to top",
+        grid10.isFull(3, 1));
   }
 
   @Test
   public void testIsFullConnection() {
     grid10.open(1, 1);
-    grid10.open(1, 3);
-    grid10.open(1, 2);
-    assertTrue("1, 3 is connected to the top and thus should be full", 
-        grid10.isFull(1, 3));
+    grid10.open(2, 1);
+    grid10.open(3, 1);
+    assertTrue("3, 1 is connected to the top and thus should be full", 
+        grid10.isFull(3, 1));
   }
 
   private Percolation generatePercolation(String filename) {
@@ -87,8 +87,12 @@ public class PercolationTest {
     File folder = new File("percolation-test-files");
 
     for (File file : folder.listFiles()) {
-      if (file.isFile()&&(file.getName().substring(file.getName().lastIndexOf('.')+1).equals("txt"))) {
-        if (file.getName().contains("no")) {
+      // check that it's a valid txt file
+      if (file.isFile() && 
+          (file.getName().substring(file.getName().lastIndexOf('.')+1).equals("txt"))) {
+        // check to verify that it is a system that does not percolate
+        if (file.getName().contains("no") || file.getName().equals("greeting57.txt") 
+            || file.getName().equals("heart25.txt")) {
           Percolation perc = generatePercolation(file.getName());
           assertFalse(file.getName() + " should not percolate", perc.percolates());
         }
@@ -100,8 +104,12 @@ public class PercolationTest {
   public void testPercolates() {
     File folder = new File("percolation-test-files");
     for (File file : folder.listFiles()) {
-      if (file.isFile()&&(file.getName().substring(file.getName().lastIndexOf('.')+1).equals("txt"))) {
-        if (!file.getName().contains("no")) {
+      // check that it's a valid txt file
+      if (file.isFile() && 
+          (file.getName().substring(file.getName().lastIndexOf('.')+1).equals("txt"))) {
+        // check to verify that it is a system that percolates
+        if (!file.getName().contains("no") && !file.getName().equals("greeting57.txt") && 
+            !file.getName().equals("heart25.txt")) {
           Percolation perc = generatePercolation(file.getName());
           assertTrue(file.getName() + " should percolate", perc.percolates());
         }
@@ -115,7 +123,4 @@ public class PercolationTest {
     assertFalse("Bottom left site is not connected to the top so should not be full",
                   input10.isFull(10, 1));
   }
-
-
-
 }

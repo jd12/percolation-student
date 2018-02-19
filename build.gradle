@@ -57,7 +57,7 @@ pmdTest.enabled = false
  checkstyle {
  	 ignoreFailures = true
      toolVersion = "8.2"   // set Checkstyle version here
-     configFile = file("config/checkstyle/checkstyle_coursera.xml")
+     configFile = file("config/checkstyle/checkstyle.xml")
  }
 
  findbugs {

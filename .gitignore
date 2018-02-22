@@ -1,5 +1,5 @@
 
-# Created by https://www.gitignore.io/api/macos,gradle,eclipse
+# Created by https://www.gitignore.io/api/macos,gradle,windows,eclipse
 
 ### Eclipse ###
 
@@ -54,10 +54,10 @@ local.properties
 .worksheet
 
 ### Eclipse Patch ###
-# Eclipse Core		
+# Eclipse Core
 .project
 
-# JDT-specific (Eclipse Java Development Tools)		
+# JDT-specific (Eclipse Java Development Tools)
 .classpath
 
 ### macOS ###
@@ -87,9 +87,30 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
 ### Gradle ###
 .gradle
-/build/
+**/build/
 
 # Ignore Gradle GUI config
 gradle-app.setting
@@ -103,7 +124,5 @@ gradle-app.setting
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
 
-# End of https://www.gitignore.io/api/macos,gradle,eclipse
-# apidocs
-/doc/
 
+# End of https://www.gitignore.io/api/macos,gradle,windows,eclipse

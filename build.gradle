@@ -46,6 +46,16 @@ dependencies {
   testImplementation 'junit:junit:4.12'
 }
 
+// set checkstyleMain to look in the java folder
+checkstyleMain {
+    source = fileTree('src/main/java') 
+} 
+
+tasks.withType(Checkstyle) {
+    exclude 'PercolationVisualizer.java'
+    exclude 'InteractivePercolationVisualizer'
+}
+
 checkstyle {
     ignoreFailures = true
     configFile = file('config/checkstyle/checkstyle.xml')
